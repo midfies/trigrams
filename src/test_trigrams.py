@@ -21,6 +21,12 @@ def test_remove_punc():
     from trigrams import remove_punc
     assert '*' not in remove_punc(sample_sent)
 
+
 def test_get_words():
     from trigrams import split_words
-    assert split_words(sample_stripped) == ['This','is','sentence','one']
+    assert split_words(sample_stripped) == ['This', 'is', 'sentence', 'one']
+
+
+def test_add_to_dic():
+    from trigrams import add_to_empty_dic
+    assert add_to_empty_dic('key', 1) == {'key': [1]}
