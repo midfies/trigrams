@@ -8,7 +8,7 @@ def main(file_path, num_words):
     data = input_file(file_path)
     sentences = split_data(data)
     book_dic = build_dic(sentences)
-    print(sentences)
+    print(book_dic)
 
 
 def input_file(path):
@@ -31,6 +31,9 @@ def build_dic(sentences):
         working_sentence = remove_punc(sentence)
         print(working_sentence)
 
+
+def split_words(sentence):
+    return sentence.split()
 
 if __name__ == '__main__':
     main('sample.txt', 200)
