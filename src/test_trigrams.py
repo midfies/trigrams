@@ -4,6 +4,7 @@
 sample = """This * is - sentence one. This is sentence two. This is sentence \
 three."""
 sample_sent = 'This * is - sentence one'
+sample_stripped = "This  is  sentence one"
 
 
 def test_input_file():
@@ -19,3 +20,7 @@ def test_get_sentences():
 def test_remove_punc():
     from trigrams import remove_punc
     assert '*' not in remove_punc(sample_sent)
+
+def test_get_words():
+    from trigrams import split_words
+    assert split_words(sample_stripped) == ['This','is','sentence','one']
