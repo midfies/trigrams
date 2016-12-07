@@ -5,6 +5,7 @@ sample = """This * is - sentence one. This is sentence two. This is sentence \
 three."""
 sample_sent = 'This * is - sentence one'
 sample_stripped = "This  is  sentence one"
+empty_dic = {}
 
 
 def test_input_file():
@@ -27,6 +28,6 @@ def test_get_words():
     assert split_words(sample_stripped) == ['This', 'is', 'sentence', 'one']
 
 
-def test_add_to_dic():
-    from trigrams import add_to_empty_dic
-    assert add_to_empty_dic('key', 1) == {'key': [1]}
+def test_add_to_empty_dic():
+    from trigrams import add_to_dic
+    assert add_to_dic(empty_dic, 'key', 1) == {'key': [1]}
