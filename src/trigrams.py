@@ -2,13 +2,14 @@
 import io
 
 def main(file_path, num_words):
-    print('hi')
-    input_file(file_path)
+    data = input_file(file_path)
+    print(data)
 
 
 def input_file(path):
     file = io.open(path)
-    print(file)
+    data = file.read()
+    return data
 
 
 if __name__ == '__main__':
