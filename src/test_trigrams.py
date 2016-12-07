@@ -37,3 +37,8 @@ def test_add_to_empty_dic():
 def test_found_key():
     from trigrams import add_to_dic
     assert add_to_dic(dic, 'key', 2) == {'key': [1, 2]}
+
+
+def test_new_key():
+    from trigrams import add_to_dic
+    assert add_to_dic(dic, 'key2', 3) == {'key': [1, 2], 'key2': [3]}
