@@ -1,8 +1,8 @@
-"""Test module for trigrams.py"""
+"""Test module for trigrams.py."""
 
-import pytest
+# import pytest
 
 
 def test_input_file():
-    from trigram import input_file
-    assert input_file(src/sample.txt) != ""
+    from trigrams import input_file
+    assert input_file('sample.txt') != ""
