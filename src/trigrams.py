@@ -47,7 +47,10 @@ def split_words(sentence):
 
 
 def add_to_dic(dic, key, value):
-    dic['key'] = [value]
+    if key in dic.keys():
+        dic['key'].append(value)
+    else:
+        dic['key'] = [value]
     return dic
 
 
