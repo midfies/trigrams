@@ -6,6 +6,7 @@ three."""
 sample_sent = 'This * is - sentence one'
 sample_stripped = "This  is  sentence one"
 empty_dic = {}
+dic = {'key': [1]}
 
 
 def test_input_file():
@@ -31,3 +32,8 @@ def test_get_words():
 def test_add_to_empty_dic():
     from trigrams import add_to_dic
     assert add_to_dic(empty_dic, 'key', 1) == {'key': [1]}
+
+
+def test_found_key():
+    from trigrams import found_key
+    assert found_key(dic, 'key', 2) == {'key': [1, 2]}
