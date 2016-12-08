@@ -69,6 +69,9 @@ def select_rand_key(dic):
 
 
 def add_to_book(book, words):
+    if len(book) == 0:
+        first_letter = words[0].upper()
+        return first_letter + words[1:]
     return book + ' ' + words
 
 
