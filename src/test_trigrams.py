@@ -43,3 +43,9 @@ def test_new_key():
     dic = {'key': [1]}
     from trigrams import add_to_dic
     assert add_to_dic(dic, 'key2', 3) == {'key': [1], 'key2': [3]}
+
+
+def test_select_rand_key():
+    dic = {'key1': 1, 'key2': 2, 'key3': 3}
+    from trigrams import select_rand_key
+    assert select_rand_key(dic) in dic
