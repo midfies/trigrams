@@ -57,15 +57,16 @@ def test_add_to_book_key():
     from trigrams import add_to_book
     assert add_to_book(book, words) == 'this is a test'
 
+
 def test_add_to_empty_book():
     words = 'this is'
     book = ''
     from trigrams import add_to_book
     assert add_to_book(book, words) == 'This is'
 
+
 def test_get_random_value():
     dic = {'key1': [1, 2, 3], 'key2': [2, 4, 6], 'key3': [3, 6, 9]}
     key = 'key3'
-    from trigrams import test_get_random_value
+    from trigrams import get_random_value
     assert get_random_value(dic, key) in dic[key]
-
