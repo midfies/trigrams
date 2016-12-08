@@ -10,7 +10,7 @@ def main(file_path, num_words):
     sentences = split_data(data)
     book_dic = build_dic(sentences)
     print(book_dic)
-    book = build_book(book_dic)
+    book = build_book(book_dic, num_words)
 
 
 def input_file(path):
@@ -57,10 +57,15 @@ def add_to_dic(dic, key, value):
     return dic
 
 
-def build_book(dic):
+def build_book(dic, num_words):
     book = ''
     words_to_add = select_rand_key(dic)
     book = add_to_book(book, words_to_add)
+    while len(book.split()) < num_words:
+        new_word = get_random_value(dic, book.split()[-2:])
+        book = add_to_book(book, new_word)
+        if new_word == '.':
+            book = add_to_book(book, select_rand_key(dic))
 
 
 def select_rand_key(dic):
@@ -74,6 +79,10 @@ def add_to_book(book, words):
         return first_letter + words[1:]
     return book + ' ' + words
 
+
+def get_random_value(dic, key):
+    random_value = random.choice(dic[key])
+    return random_value
 
 if __name__ == '__main__':
     main('sample.txt', 200)
