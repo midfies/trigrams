@@ -3,10 +3,12 @@ import io
 import string
 import re
 import random
+import sys
 
 
 def main(file_path, num_words):
     '''Call the primary functions of this module.'''
+    num_words = int(num_words)
     data = input_file(file_path)
     sentences = split_data(data)
     book_dic = build_dic(sentences)
@@ -40,7 +42,9 @@ def build_dic(sentences):
     '''Call funtions that build dictionary.'''
     dic = {}
     for sentence in sentences:
-        first_letter = sentence[0].lower()
+        print
+        if type(sentence[0]) is not 'int':
+            first_letter = sentence[0].lower()
         sentence = first_letter + sentence[1:]
         working_sentence = remove_punc(sentence)
         word_array = split_words(working_sentence)
@@ -114,5 +118,5 @@ def get_random_value(dic, key):
 
 
 if __name__ == '__main__':
-    main('sample.txt', 200)
-main('sample.txt', 200)
+    print(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2])
