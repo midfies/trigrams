@@ -23,12 +23,14 @@ def split_data(data):
 
 
 def remove_punc(sentences):
-    return re.sub('[%s]' % string.punctuation, '', sentences)
+    return re.sub('[%s]' % string.punctuation, ' ', sentences)
 
 
 def build_dic(sentences):
     dic = {}
     for sentence in sentences:
+        first_letter = sentence[0].lower()
+        sentence = first_letter + sentence[1:]
         working_sentence = remove_punc(sentence)
         word_array = split_words(working_sentence)
         for i in range(len(word_array) - 1):
@@ -37,8 +39,9 @@ def build_dic(sentences):
                 value_word = word_array[i + 2]
             else:
                 value_word = '.'
-            print(key_word + ' and ' + value_word)
+            #print(key_word + ' and ' + value_word)
             dic = add_to_dic(dic, key_word, value_word)
+    return dic
 
 
 
@@ -48,11 +51,10 @@ def split_words(sentence):
 
 def add_to_dic(dic, key, value):
     if key in dic.keys():
-        dic['key'].append(value)
+        dic[key].append(value)
     else:
-        dic['key'] = [value]
+        dic[key] = [value]
     return dic
-
 
 
 if __name__ == '__main__':
