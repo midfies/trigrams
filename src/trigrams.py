@@ -60,6 +60,7 @@ def add_to_dic(dic, key, value):
 
 def build_book(dic):
     words_to_add = select_rand_key(dic)
+    
 
 
 def select_rand_key(dic):
