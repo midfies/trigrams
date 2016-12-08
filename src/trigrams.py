@@ -41,10 +41,8 @@ def build_dic(sentences):
                 value_word = word_array[i + 2]
             else:
                 value_word = '.'
-            #print(key_word + ' and ' + value_word)
             dic = add_to_dic(dic, key_word, value_word)
     return dic
-
 
 
 def split_words(sentence):
@@ -58,15 +56,20 @@ def add_to_dic(dic, key, value):
         dic[key] = [value]
     return dic
 
+
 def build_book(dic):
+    book = ''
     words_to_add = select_rand_key(dic)
-    
+    book = add_to_book(book, words_to_add)
 
 
 def select_rand_key(dic):
-    new_dic = {}
-    random_key = random.sample(dic, 1)
+    random_key = random.sample(list(dic), 1)
     return random_key[0]
+
+
+def add_to_book(book, words):
+    return book + ' ' + words
 
 
 if __name__ == '__main__':
