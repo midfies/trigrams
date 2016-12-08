@@ -18,7 +18,7 @@ three."""
 
 
 def test_build_dic():
-    '''Test the build dictionary -  Filters all words into dictionary'''
+    '''Test the build dictionary -  Filters all words into dictionary.'''
     sample = ['This * is - sentence one']
     from trigrams import build_dic
     assert build_dic(sample) == {'this is': ['sentence'], 'is sentence':
@@ -26,15 +26,15 @@ def test_build_dic():
 
 
 def test_build_book():
-    '''Tests that dictionary can be turned into book'''
+    '''Test that dictionary can be turned into book.'''
     sample = {'this is': ['sentence'], 'is sentence':
     ['one'], 'sentence one': ['.']}
     from trigrams import build_book
     assert type(build_book(sample, 10)) == type('str')
 
 
-def test_build_book():
-    '''Tests that dictionary can be turned into book'''
+def test_build_book2():
+    '''Test that dictionary can be turned into book.'''
     sample = {'this is': ['sentence'], 'is sentence':
     ['one'], 'sentence one': ['.']}
     from trigrams import build_book
