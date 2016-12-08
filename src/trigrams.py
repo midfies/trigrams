@@ -61,6 +61,7 @@ def input_file(path):
     '''Open and read a given file.'''
     file = io.open(path)
     data = file.read()
+    file.close()
     return data
 
 
@@ -119,5 +120,5 @@ def get_random_value(dic, key):
 #     return updated_book
 
 
-# if __name__ == '__main__':
-#     main(sys.argv[1], sys.argv[2])
+if __name__ == '__main__':
+    main(sys.argv[1], sys.argv[2])
