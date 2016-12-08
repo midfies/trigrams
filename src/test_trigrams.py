@@ -62,7 +62,7 @@ def test_add_to_empty_book():
     words = 'this is'
     book = ''
     from trigrams import add_to_book
-    assert add_to_book(book, words) == 'This is'
+    assert add_to_book(book, words) == 'this is'
 
 
 def test_get_random_value():
@@ -70,3 +70,8 @@ def test_get_random_value():
     key = 'key3'
     from trigrams import get_random_value
     assert get_random_value(dic, key) in dic[key]
+
+# def test_capitalize_sent():
+#     book = "this is a test. this is another."
+#     from trigrams import capitalize_sentences
+#     assert capitalize_sentences(book) == "this is a test. This is another."
