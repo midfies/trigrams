@@ -11,31 +11,15 @@ def main(file_path, num_words):
     num_words = int(num_words)
     data = input_file(file_path)
     sentences = split_data(data)
+    print(sentences)
     book_dic = build_dic(sentences)
+    print(book_dic)
     book = build_book(book_dic, num_words)
     first_letter_of_book = book[0].upper()
     book = first_letter_of_book + book[1:]
     # book = capitalize_sentences(book)
 
     print(book)
-
-
-def input_file(path):
-    '''Open and read a given file.'''
-    file = io.open(path)
-    data = file.read()
-    return data
-
-
-def split_data(data):
-    '''Split file into individual sentences.'''
-    sentences = data.split('.')
-    return sentences
-
-
-def remove_punc(sentences):
-    '''Remove punctuation from the sentences.'''
-    return re.sub('[%s]' % string.punctuation, ' ', sentences)
 
 
 def build_dic(sentences):
@@ -58,20 +42,6 @@ def build_dic(sentences):
     return dic
 
 
-def split_words(sentence):
-    '''Split sentences into lists containing individual words.'''
-    return sentence.split()
-
-
-def add_to_dic(dic, key, value):
-    '''Add two word keys and one word values to the dictionary.'''
-    if key in dic.keys():
-        dic[key].append(value)
-    else:
-        dic[key] = [value]
-    return dic
-
-
 def build_book(dic, num_words):
     '''Add the generated sentences to the book.'''
     book = ''
@@ -85,6 +55,38 @@ def build_book(dic, num_words):
         if new_word == '.':
             book = add_to_book(book, select_rand_key(dic))
     return book
+
+
+def input_file(path):
+    '''Open and read a given file.'''
+    file = io.open(path)
+    data = file.read()
+    return data
+
+
+def split_data(data):
+    '''Split file into individual sentences.'''
+    sentences = data.split('.')
+    return sentences
+
+
+def remove_punc(sentences):
+    '''Remove punctuation from the sentences.'''
+    return re.sub('[%s]' % string.punctuation, ' ', sentences)
+
+
+def split_words(sentence):
+    '''Split sentences into lists containing individual words.'''
+    return sentence.split()
+
+
+def add_to_dic(dic, key, value):
+    '''Add two word keys and one word values to the dictionary.'''
+    if key in dic.keys():
+        dic[key].append(value)
+    else:
+        dic[key] = [value]
+    return dic
 
 
 def select_rand_key(dic):
@@ -117,6 +119,5 @@ def get_random_value(dic, key):
 #     return updated_book
 
 
-if __name__ == '__main__':
-    print(sys.argv[1], sys.argv[2])
-    main(sys.argv[1], sys.argv[2])
+# if __name__ == '__main__':
+#     main(sys.argv[1], sys.argv[2])

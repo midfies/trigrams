@@ -6,7 +6,7 @@
 def test_input_file():
     '''Test that input_file recieves a file.'''
     from trigrams import input_file
-    assert input_file('sample.txt') is not ''
+    assert input_file('src/sample.txt') is not ''
 
 
 def test_get_sentences():
@@ -15,6 +15,30 @@ def test_get_sentences():
 three."""
     from trigrams import split_data
     assert split_data(sample)[0] == """This * is - sentence one"""
+
+
+def test_build_dic():
+    '''Test the build dictionary -  Filters all words into dictionary'''
+    sample = ['This * is - sentence one']
+    from trigrams import build_dic
+    assert build_dic(sample) == {'this is': ['sentence'], 'is sentence':
+    ['one'], 'sentence one': ['.']}
+
+
+def test_build_book():
+    '''Tests that dictionary can be turned into book'''
+    sample = {'this is': ['sentence'], 'is sentence':
+    ['one'], 'sentence one': ['.']}
+    from trigrams import build_book
+    assert type(build_book(sample, 10)) == type('str')
+
+
+def test_build_book():
+    '''Tests that dictionary can be turned into book'''
+    sample = {'this is': ['sentence'], 'is sentence':
+    ['one'], 'sentence one': ['.']}
+    from trigrams import build_book
+    assert 'this' and 'sentence' and 'is' and 'one' in build_book(sample, 10)
 
 
 def test_remove_punc():
