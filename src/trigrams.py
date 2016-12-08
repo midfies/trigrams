@@ -6,33 +6,38 @@ import random
 
 
 def main(file_path, num_words):
+    '''Call the primary functions of this module.'''
     data = input_file(file_path)
     sentences = split_data(data)
     book_dic = build_dic(sentences)
     book = build_book(book_dic, num_words)
-    # first_letter_of_book = book[0].upper()
-    # book = first_letter_of_book + book[1:]
+    first_letter_of_book = book[0].upper()
+    book = first_letter_of_book + book[1:]
     # book = capitalize_sentences(book)
 
     print(book)
 
 
 def input_file(path):
+    '''Open and read a given file.'''
     file = io.open(path)
     data = file.read()
     return data
 
 
 def split_data(data):
+    '''Split file into individual sentences.'''
     sentences = data.split('.')
     return sentences
 
 
 def remove_punc(sentences):
+    '''Remove punctuation from the sentences.'''
     return re.sub('[%s]' % string.punctuation, ' ', sentences)
 
 
 def build_dic(sentences):
+    '''Call funtions that build dictionary.'''
     dic = {}
     for sentence in sentences:
         first_letter = sentence[0].lower()
@@ -50,10 +55,12 @@ def build_dic(sentences):
 
 
 def split_words(sentence):
+    '''Split sentences into lists containing individual words.'''
     return sentence.split()
 
 
 def add_to_dic(dic, key, value):
+    '''Add two word keys and one word values to the dictionary.'''
     if key in dic.keys():
         dic[key].append(value)
     else:
@@ -62,6 +69,7 @@ def add_to_dic(dic, key, value):
 
 
 def build_book(dic, num_words):
+    '''Add the generated sentences to the book.'''
     book = ''
     words_to_add = select_rand_key(dic)
     book = add_to_book(book, words_to_add)
@@ -76,11 +84,13 @@ def build_book(dic, num_words):
 
 
 def select_rand_key(dic):
+    '''Select a random key from the dictionary.'''
     random_key = random.sample(list(dic), 1)
     return random_key[0]
 
 
 def add_to_book(book, words):
+    '''Add generated words to the book.'''
     if len(book) == 0:
         return words
     if words == '.':
@@ -89,6 +99,7 @@ def add_to_book(book, words):
 
 
 def get_random_value(dic, key):
+    '''Get random value from a key.'''
     random_value = random.choice(dic[key])
     return random_value
 
@@ -100,7 +111,6 @@ def get_random_value(dic, key):
 #         sentence = sentence_start + sentence[2:] + '. '
 #         updated_book  += sentence
 #     return updated_book
-
 
 
 if __name__ == '__main__':
