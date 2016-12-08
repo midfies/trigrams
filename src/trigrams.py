@@ -2,6 +2,7 @@
 import io
 import string
 import re
+import random
 
 
 def main(file_path, num_words):
