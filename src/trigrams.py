@@ -10,6 +10,7 @@ def main(file_path, num_words):
     sentences = split_data(data)
     book_dic = build_dic(sentences)
     print(book_dic)
+    book = build_book(book_dic)
 
 
 def input_file(path):
@@ -56,6 +57,16 @@ def add_to_dic(dic, key, value):
     else:
         dic[key] = [value]
     return dic
+
+def build_book(dic):
+    words_to_add = select_rand_key(dic)
+    
+
+
+def select_rand_key(dic):
+    new_dic = {}
+    random_key = random.sample(dic, 1)
+    return random_key[0]
 
 
 if __name__ == '__main__':

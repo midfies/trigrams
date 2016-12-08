@@ -49,3 +49,10 @@ def test_select_rand_key():
     dic = {'key1': 1, 'key2': 2, 'key3': 3}
     from trigrams import select_rand_key
     assert select_rand_key(dic) in dic
+
+
+def test_add_to_book_key():
+    words = 'a test'
+    book = 'this is'
+    from trigrams import add_to_book
+    assert add_to_book(book, words) == 'this is a test'
